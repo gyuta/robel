@@ -82,3 +82,20 @@ register(
     class_path='robel.dkitty.walk:DKittyWalkRandomDynamics',
     max_episode_steps=_WALK_EPISODE_LEN)
 
+
+
+# 追加タスク
+
+LEN = 160
+
+register(
+    env_id="walk-v0",
+    class_path="robel.dkitty.distral.dwalk.Walk",
+    max_episode_steps=LEN
+)
+register(
+    env_id="orient-v0",
+    class_path="robel.dkitty.distral.dorient.Orient",
+    max_episode_steps=LEN
+)
+
