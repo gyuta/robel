@@ -22,4 +22,4 @@ class Base(DKittyWalkFixed):
     将来的にはタスクごとに異なる模倣軌道を与えるようにすべきか。
     """
     def __init__(self, *args, **kwargs):
-        super().__init__(ovservation_keys = OBSERVATION_KEYS, *args, **kwargs)
+        super().__init__(observation_keys = OBSERVATION_KEYS, *args, **kwargs)

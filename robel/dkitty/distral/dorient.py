@@ -3,7 +3,7 @@ import collections
 
 from robel.dkitty.distral.base import Base
 
-class Orinet(Base):
+class Orient(Base):
     def get_reward_dict(self, action, obs_dict):
         heading = obs_dict['heading']
         angle_error = np.arccos(heading)
