@@ -90,7 +90,7 @@ LEN = 160
 
 register(
     env_id="walk-v0",
-    class_path="robel.dkitty.distral:dwalk.Walk",
+    class_path="robel.dkitty.distral.dwalk:Walk",
     max_episode_steps=LEN
 )
 register(
