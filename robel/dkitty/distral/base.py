@@ -21,5 +21,5 @@ class Base(DKittyWalkFixed):
     これを継承してタスクに応じたリワードを与える。
     将来的にはタスクごとに異なる模倣軌道を与えるようにすべきか。
     """
-    def __init__(self, *args, **kwargs):
-        super().__init__(observation_keys = OBSERVATION_KEYS, *args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(observation_keys = OBSERVATION_KEYS, *args, **kwargs)
