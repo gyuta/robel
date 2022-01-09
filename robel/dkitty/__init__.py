@@ -98,4 +98,13 @@ register(
     class_path="robel.dkitty.distral.dorient:Orient",
     max_episode_steps=LEN
 )
+register(
+    env_id="walkrandom-v0",
+    class_path="robel.dkitty.distral.dwalk:WalkRandom",
+    max_episode_steps=LEN
+)
+register(
+    env_id='walkrandom-v1',
+    class_path='robel.dkitty.walk:DKittyWalkRandom',
+    max_episode_steps=_WALK_EPISODE_LEN)
 
