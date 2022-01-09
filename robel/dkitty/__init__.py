@@ -108,3 +108,9 @@ register(
     class_path='robel.dkitty.walk:DKittyWalkRandom',
     max_episode_steps=_WALK_EPISODE_LEN)
 
+register(
+    env_id="turnwalk-v0",
+    class_path="robel.dkitty.distral.dwalk:TrunWalk",
+    max_episode_steps=LEN
+)
+

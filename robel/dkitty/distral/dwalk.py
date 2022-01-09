@@ -1,7 +1,7 @@
 from robel.dkitty.distral.base import Base
 import numpy as np
 from typing import Dict, Optional, Sequence, Tuple, Union
-
+from robel.components.tracking import TrackerComponentBuilder, TrackerState
 class Walk(Base):
     """ walk task
 
@@ -40,3 +40,24 @@ class WalkRandom(Base):
         ])
         super()._reset()
         print(target_dist, target_theta)
+
+class TurnWalk(Walk):
+    """ ひっくり返って歩く
+    """
+    def _reset(self):
+        """Resets the environment."""
+        self._reset_dkitty_standing()
+
+        # If no heading is provided, head towards the target.
+        target_pos = self._initial_target_pos
+        heading_pos = self._initial_heading_pos
+        if heading_pos is None:
+            heading_pos = target_pos
+
+        # Set the tracker locations.
+        self._initial_angle = np.pi
+        self.tracker.set_state({
+            'torso': TrackerState(pos=np.zeros(3), rot_euler=np.array([0, 0, self._initial_angle])),
+            'target': TrackerState(pos=target_pos),
+            'heading': TrackerState(pos=heading_pos),
+        })
