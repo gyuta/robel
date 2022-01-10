@@ -110,7 +110,7 @@ register(
 
 register(
     env_id="turnwalk-v0",
-    class_path="robel.dkitty.distral.dwalk:TrunWalk",
+    class_path="robel.dkitty.distral.dwalk:TurnWalk",
     max_episode_steps=LEN
 )
 

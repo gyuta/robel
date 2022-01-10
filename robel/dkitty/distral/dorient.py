@@ -27,20 +27,10 @@ class Orient(Base):
     
     def _reset(self):
         """Resets the environment."""
-        self._initial_angle = np.pi
-        # self._target_angle = np.pi
 
         self._reset_dkitty_standing()
-        # Set the initial target position.
         self.tracker.set_state({
-            'torso': TrackerState(
-                pos=np.zeros(3),
-                rot_euler=np.array([0, 0, self._initial_angle])),
-            # 'target': TrackerState(
-            #     pos=np.array([
-            #         # The D'Kitty is offset to face the y-axis.
-            #         np.cos(self._target_angle + np.pi / 2),
-            #         np.sin(self._target_angle + np.pi / 2),
-            #         0,
-            #     ])),
+            'torso': TrackerState(pos=np.zeros(3), rot_euler=np.array([0,0,np.pi])),
+            'target': TrackerState(pos=np.array([0,2,0])),
+            'heading': TrackerState(pos=np.array([0,2,0])),
         })
