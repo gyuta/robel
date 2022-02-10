@@ -114,3 +114,25 @@ register(
     max_episode_steps=LEN
 )
 
+
+register(
+    env_id="orient_random-v0",
+    class_path="robel.dkitty.distral.dorient:OrientRandom",
+    max_episode_steps=LEN
+)
+register(
+    env_id="walk_random-v0",
+    class_path="robel.dkitty.distral.dwalk:WalkRandomDistance",
+    max_episode_steps=LEN
+)
+
+register(
+    env_id="leftorient_random-v0",
+    class_path="robel.dkitty.distral.dorient:LeftOrientRandom",
+    max_episode_steps=80
+)
+register(
+    env_id="leftorient_random-v1",
+    class_path="robel.dkitty.distral.dorient:LeftOrientRandom2",
+    max_episode_steps=80
+)

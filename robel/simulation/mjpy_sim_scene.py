@@ -85,7 +85,8 @@ class MjPySimScene(SimScene):
     def upload_height_field(self, hfield_id: int):
         """Uploads the height field to the rendering context."""
         if not self.sim.render_contexts:
-            logging.warning('No rendering context; not uploading height field.')
+            # 20220210 orientrandomdynamics を動かす際にうるさいのでコメントアウト
+            # logging.warning('No rendering context; not uploading height field.')
             return
         self.get_mjlib().mjr_uploadHField(
             self.model, self.sim.render_contexts[0].con, hfield_id)

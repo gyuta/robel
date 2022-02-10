@@ -53,3 +53,19 @@ class TurnWalk(Walk):
             'target': TrackerState(pos=np.array([0,2,0])),
             'heading': TrackerState(pos=np.array([0,2,0])),
         })
+
+class WalkRandomDistance(Walk):
+    def _reset(self):
+        """Resets the environment."""
+        self._reset_dkitty_standing()
+
+        # If no heading is provided, head towards the target.
+        dist = np.random.random() + 1.5
+        target_pos = np.array([0,dist,0])
+
+        # Set the tracker locations.
+        self.tracker.set_state({
+            'torso': TrackerState(pos=np.zeros(3), rot=np.identity(3)),
+            'target': TrackerState(pos=target_pos),
+            'heading': TrackerState(pos=target_pos),
+        })

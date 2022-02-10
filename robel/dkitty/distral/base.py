@@ -22,4 +22,5 @@ class Base(DKittyWalkFixed):
     将来的にはタスクごとに異なる模倣軌道を与えるようにすべきか。
     """
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, falling_reward=-5000,**kwargs)
+        # super().__init__(*args, falling_reward=-2500,**kwargs)
+        super().__init__(*args, falling_reward=-500,**kwargs)

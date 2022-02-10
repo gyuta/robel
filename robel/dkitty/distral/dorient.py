@@ -34,3 +34,38 @@ class Orient(Base):
             'target': TrackerState(pos=np.array([0,2,0])),
             'heading': TrackerState(pos=np.array([0,2,0])),
         })
+
+class OrientRandom(Orient):
+    def _reset(self):
+        """Resets the environment."""
+        ang = np.random.random()*np.pi/3 + np.pi - np.pi/6
+        self._reset_dkitty_standing()
+        self.tracker.set_state({
+            'torso': TrackerState(pos=np.zeros(3), rot_euler=np.array([0,0,ang])),
+            'target': TrackerState(pos=np.array([0,2,0])),
+            'heading': TrackerState(pos=np.array([0,2,0])),
+        })
+
+
+class LeftOrientRandom(Orient):
+    def _reset(self):
+        """Resets the environment."""
+        ang = np.random.random()*np.pi/3 + np.pi - np.pi/3
+        self._reset_dkitty_standing()
+        self.tracker.set_state({
+            'torso': TrackerState(pos=np.zeros(3), rot_euler=np.array([0,0,ang])),
+            'target': TrackerState(pos=np.array([0,2,0])),
+            'heading': TrackerState(pos=np.array([0,2,0])),
+        })
+
+
+class LeftOrientRandom2(Orient):
+    def _reset(self):
+        """Resets the environment."""
+        ang = np.random.random()*np.pi/6 + np.pi - np.pi/6
+        self._reset_dkitty_standing()
+        self.tracker.set_state({
+            'torso': TrackerState(pos=np.zeros(3), rot_euler=np.array([0,0,ang])),
+            'target': TrackerState(pos=np.array([0,2,0])),
+            'heading': TrackerState(pos=np.array([0,2,0])),
+        })
