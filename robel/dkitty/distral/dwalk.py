@@ -54,6 +54,23 @@ class TurnWalk(Walk):
             'heading': TrackerState(pos=np.array([0,2,0])),
         })
 
+class TurnWalkCoordRandom(Walk):
+    """ OrientCoordRandom に対応したタスク
+    """
+    def _reset(self):
+        """Resets the environment."""
+        p = (np.random.random(3)-0.5)*2
+        p[2] = 0
+
+        self._reset_dkitty_standing()
+        self.tracker.set_state({
+            'torso': TrackerState(pos=p, rot_euler=np.array([0,0,np.pi])),
+            'target': TrackerState(pos=np.array([0,2,0])),
+            'heading': TrackerState(pos=np.array([0,2,0])),
+        })
+
+
+
 class WalkRandomDistance(Walk):
     def _reset(self):
         """Resets the environment."""

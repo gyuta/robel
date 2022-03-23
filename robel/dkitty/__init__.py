@@ -136,3 +136,15 @@ register(
     class_path="robel.dkitty.distral.dorient:LeftOrientRandom2",
     max_episode_steps=80
 )
+
+register(
+    env_id="orient_coordrandom-v0",
+    class_path="robel.dkitty.distral.dorient:OrientCoordRandom",
+    max_episode_steps=80
+)
+
+register(
+    env_id="turnwalk_coordrandom-v0",
+    class_path="robel.dkitty.distral.dwalk:TurnWalkCoordRandom",
+    max_episode_steps=LEN
+)
