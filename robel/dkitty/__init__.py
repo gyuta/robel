@@ -148,3 +148,27 @@ register(
     class_path="robel.dkitty.distral.dwalk:TurnWalkCoordRandom",
     max_episode_steps=LEN
 )
+
+register(
+    env_id="turnwalk_cr-rd-v0",
+    class_path="robel.dkitty.distral.dwalk:TurnWalkRandomDynamics",
+    max_episode_steps=LEN
+)
+
+register(
+    env_id="dwalkrandom-v0",
+    class_path="robel.dkitty.distral.dwalk:DWalkRandom",
+    max_episode_steps=LEN
+)
+
+register(
+    env_id="dwalk_rd-v0",
+    class_path="robel.dkitty.distral.dwalk:DWalkRandomDynamics",
+    max_episode_steps=LEN
+)
+
+register(
+    env_id="orient_cr-rd-v0",
+    class_path="robel.dkitty.distral.dorient:OrientCoordRandomDynamics",
+    max_episode_steps=80
+)
