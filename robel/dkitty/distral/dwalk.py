@@ -147,7 +147,7 @@ class DWalkRandom(Walk):
 
         self._reset_dkitty_standing()
         self.tracker.set_state({
-            'torso': TrackerState(pos=p, rot_euler=np.array([0,0,np.pi])),
+            'torso': TrackerState(pos=p, rot_euler=np.array([0,0,0])),
             'target': TrackerState(pos=np.array([0,2,0])),
             'heading': TrackerState(pos=np.array([0,2,0])),
         })
