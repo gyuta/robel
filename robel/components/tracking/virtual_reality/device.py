@@ -61,7 +61,7 @@ class VrDevice:
         if prop_type in self._value_cache:
             return self._value_cache[prop_type]
         value = self._vr_system.getStringTrackedDeviceProperty(
-            self._index, prop_type).decode('utf-8')
+            self._index, prop_type)
         self._value_cache[prop_type] = value
         return value
 

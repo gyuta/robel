@@ -170,5 +170,5 @@ register(
 register(
     env_id="dorient_cr-rd-v0",
     class_path="robel.dkitty.distral.dorient:OrientCoordRandomDynamics",
-    max_episode_steps=80
+    max_episode_steps=400
 )
