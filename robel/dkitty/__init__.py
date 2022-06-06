@@ -91,7 +91,7 @@ LEN = 160
 register(
     env_id="walk-v0",
     class_path="robel.dkitty.distral.dwalk:Walk",
-    max_episode_steps=LEN
+    max_episode_steps=10**10
 )
 register(
     env_id="orient-v0",

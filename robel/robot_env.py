@@ -279,6 +279,7 @@ class RobotEnv(gym.Env, metaclass=abc.ABCMeta):
         # Get whether the episode should end.
         dones = self.get_done(batched_obs_dict, batched_reward_dict)
         done = dones.item()
+        done = False
         self.is_done = done
 
         # Combine the dictionaries as the auxiliary information.
