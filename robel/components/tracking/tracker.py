@@ -24,6 +24,11 @@ from transforms3d.quaternions import mat2quat
 from robel.components.base import BaseComponent
 from robel.components.tracking.group_config import TrackerGroupConfig
 
+import time
+
+former_pos = np.zeros(3)
+former_ang = np.zeros(3)
+former_time = time.time()
 
 class TrackerState:
     """Data class that represents the state of the tracker."""
@@ -51,6 +56,27 @@ class TrackerState:
         self.angular_vel = angular_vel
         self._rot_mat = rot
         self._rot_euler = rot_euler
+        
+        
+        ang = self.rot_euler
+        global former_time, former_pos, former_ang
+        t = time.time() - former_time
+        if t > 1:
+            self.vel = np.zeros(3)
+            self.angular_vel = np.zeros(3)
+        else:
+            try:
+                self.vel = (pos - former_pos)/t
+            except:
+                self.vel = np.zeros(3)
+            try:
+                self.angular_vel = (ang - former_ang)/t
+            except:
+                self.angular_vel = np.zeros(3)
+            
+        former_pos = pos
+        former_ang = ang
+        former_time = t
 
     @property
     def rot(self):

@@ -40,8 +40,19 @@ class VrPoseBatch:
             vr_pose = np.ctypeslib.as_array(
                 self.poses[device.index].mDeviceToAbsoluteTracking[:],
                 shape=(3, 4))
+            R,p = convert(vr_pose[:, :3], vr_pose[:,3])
+            p[2] *= -1
+            print(p)
             # Check that the pose is valid.
             # If all of the translations are 0, get from the cache.
             assert vr_pose.shape == (3, 4)
-            state = TrackerState(pos=vr_pose[:, 3], rot=vr_pose[:, :3])
+            state = TrackerState(pos=p, rot=R)
         return state
+
+R_BS_to_O = np.load("base/R.npy")
+p_BS_to_O = np.load("base/p.npy")
+def convert(R_BS_to_T, p_BS_to_T):
+    R_O_to_T = np.dot(R_BS_to_O.T, R_BS_to_T)
+    p_O_to_T = np.dot(R_BS_to_O.T, p_BS_to_T - p_BS_to_O)
+    return R_O_to_T, p_O_to_T
+    
