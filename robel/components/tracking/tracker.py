@@ -65,8 +65,14 @@ class TrackerState:
             self.vel = np.zeros(3)
             self.angular_vel = np.zeros(3)
         else:
-            self.vel = (pos - former_pos)/t
-            self.angular_vel = (ang - former_ang)/t
+            try:
+                self.vel = (pos - former_pos)/t
+            except:
+                self.vel = np.zeros(3)
+            try:
+                self.angular_vel = (ang - former_ang)/t
+            except:
+                self.angular_vel = np.zeros(3)
             
         former_pos = pos
         former_ang = ang
